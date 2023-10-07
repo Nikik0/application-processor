@@ -1,0 +1,28 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    password: dev123
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 20MB
+      location: ${java.io.tmpdir}/upload/data
+  r2dbc:
+    url: r2dbc:pool:postgres://localhost:5432/applic-db
+    username: dev
+    password: dev123
+#  flyway:
+#    url: jdbc:postgresql://localhost:5432/fin_api_test_db
+#    locations: classpath:db/migration
+#    user: ${spring.r2dbc.username}
+#    password: ${spring.r2dbc.password}
+
+logging:
+  level:
+    io.r2dbc.postgresql.QUERY: DEBUG
+    io.r2dbc.postgresql.PARAM: DEBUG
+
+
